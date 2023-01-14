@@ -1,0 +1,25 @@
+{
+  "name": "parcel-html-template",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/assets/css/output.css --watch",
+    "css": "npx tailwindcss -i ./src/input.css -o ./src/assets/css/output.css --minify",
+    "start": "npm run prebuild && parcel ./src/*.html",
+    "prebuild": "rimraf .parcel-cache && rimraf dist",
+    "build": "npm run css && npm run prebuild && parcel build ./src/*.html",
+    "build:prod": "npm run css && npm run prebuild && parcel build ./src/*.html --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "rimraf": "^3.0.2"
+  }
+}
